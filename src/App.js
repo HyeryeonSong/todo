@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import TodoTemplate from './components/TodoTemplate';
+import TodoHead from './components/TodoHead';
+import TodoList from './components/TodoList';
+import TodoCreate from './components/TodoCreate';
+import { TodoProvider } from './TodoProvider';
+
+
+const GlobalStyle = createGlobalStyle`
+  *{
+    margin: 0;
+    padding: 0;    
+  }
+
+  body {
+    background: #E3E9FF;        
+  }  
+`;
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // 프로젝트 모든 곳에서 Todo 관련 Context 들을 사용 할 수 있도록, 모든 내용을 TodoProvider 로 감싸준다.
+    <TodoProvider>      
+      <GlobalStyle />
+      <TodoTemplate>
+        <TodoHead />
+        <TodoCreate />
+        <TodoList />
+      </TodoTemplate>
+    </TodoProvider>
   );
 }
 
