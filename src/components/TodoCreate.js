@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { RiAddFill, RiCloseFill } from 'react-icons/ri';
 import { useTodoDispatch, useTodoNextId } from '../TodoProvider';
 
