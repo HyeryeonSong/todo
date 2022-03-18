@@ -9,6 +9,7 @@ const TodoListBlock = styled.div`
   height: 100%;
   margin-top: 20px;
   padding: 30px;
+  padding-bottom: 140px;
 `
 
 function TodoList(){

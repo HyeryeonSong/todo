@@ -11,7 +11,7 @@ const TodoCreateBlock = styled.div`
   &:active {
     background:  #BC8EF4;
   }
-
+  
   border-radius: 20px;
   position: absolute;
   left: 50%;

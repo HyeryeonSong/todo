@@ -26,8 +26,8 @@ function App() {
       <GlobalStyle />
       <TodoTemplate>
         <TodoHead />
-        <TodoCreate />
         <TodoList />
+        <TodoCreate />
       </TodoTemplate>
     </TodoProvider>
   );
