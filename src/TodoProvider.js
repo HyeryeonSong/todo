@@ -37,8 +37,6 @@ function todoReducer(state, action) { // 첫번째인자 : state, 두번째인�
       );
     case 'REMOVE':       
       return state.filter(todo => todo.id !== action.id); // 클릭한 요소를 제외한 요소만 모아서 새로운 배열으로 반환             
-    case 'EDIT':
-      return state.concat(action.todo);
     default: // 주어진 case가 없을 때 실행
       throw new Error(`Unhandled action type: ${action.type}`);
   }
