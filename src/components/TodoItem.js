@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
-import { RiDeleteBin5Fill, RiEdit2Fill, RiCheckFill } from "react-icons/ri";
+import { RiDeleteBin5Fill, RiEdit2Fill } from "react-icons/ri";
 import { useTodoDispatch } from '../TodoProvider';
 
 
@@ -109,4 +109,7 @@ function TodoItem({ id, done, text }) {
   );
 }
 
-export default React.memo(TodoItem); // 다른 항목이 업데이트 될 때, 불필요한 리렌더링을 방지
+
+// export default TodoItem;
+export default React.memo(TodoItem); 
+// 다른 항목이 업데이트 될 때, 불필요한 리렌더링을 방지
