@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import { RiDeleteBin5Fill } from "react-icons/ri";
+import { RiDeleteBin5Fill, RiEdit2Fill, RiCheckFill } from "react-icons/ri";
 import { useTodoDispatch } from '../TodoProvider';
 
+
+const Edit = styled.div`
+  display: flex;  
+  align-items: center;
+  font-size: 16px;
+  justify-content: center;
+  color: #dee2e6;
+  padding-right: 10px;
+  cursor: pointer;
+  &:hover {
+    color: #ff6b6b;
+  }
+  display: none;
+`
+
 const Remove = styled.div`
-  display: flex;
+  display: flex;  
   align-items: center;
   font-size: 16px;
   justify-content: center;
@@ -22,6 +37,7 @@ const TodoItemBlock = styled.div`
   padding-top: 12px;
   padding-bottom: 12px;
   &:hover {
+    ${Edit},
     ${Remove} { // TodoItemBlock에 hover 했을때 Remove 컴포넌트 보여주기
       display: initial;
     }
@@ -59,13 +75,19 @@ const Text = styled.div`
       text-decoration:line-through;      
       text-decoration-color: #E1E6F9;
     `}
-`;
+`;  
 
 
 function TodoItem({ id, done, text }) {
   const dispatch = useTodoDispatch();
   const onToggle = () => dispatch({ type: 'TOGGLE', id });
-  const onRemove = () => dispatch({ type: 'REMOVE', id });
+  const onRemove = () => dispatch({ type: 'REMOVE', id });   
+  const onEdit = () => {  
+    console.log('edit');
+    console.log({text});
+    
+  }
+
 
   return(
     <>
@@ -73,9 +95,12 @@ function TodoItem({ id, done, text }) {
         <Text done={done} onClick={onToggle}>
           <CheckCircle done={done}>
             {done}
-          </CheckCircle>            
+          </CheckCircle>
           {text}
         </Text>
+        <Edit onClick={onEdit}>
+          <RiEdit2Fill />
+        </Edit>
         <Remove onClick={onRemove}>
           <RiDeleteBin5Fill />
         </Remove>

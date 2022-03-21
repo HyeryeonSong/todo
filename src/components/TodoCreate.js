@@ -76,7 +76,6 @@ const Input = styled.input`
 function TodoCreate(){  
   const [open, setOpen] = useState(false);  
   const [value, setValue] = useState('');
-
   const dispatch = useTodoDispatch();
   const nextId = useTodoNextId();
 
@@ -109,6 +108,7 @@ function TodoCreate(){
               placeholder="할 일을 입력 후, Enter를 누르세요."
               onChange={onChange}
               value={value}
+              required
             />
           </InsertForm>
         </FormBlock>
